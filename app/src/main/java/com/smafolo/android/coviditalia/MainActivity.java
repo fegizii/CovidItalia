@@ -1,12 +1,10 @@
 package com.smafolo.android.coviditalia;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
-
+import androidx.appcompat.app.AppCompatActivity;
 import java.util.ArrayList;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,22 +15,40 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Create a fake list of regioni.
-        ArrayList<String> regioni = new ArrayList<>();
-        regioni.add("Toscana");
-        regioni.add("Lombardia");
-        regioni.add("Lazio");
-        regioni.add("Sicilia");
+        // Create an ArrayList of Regione objects using the basic view constructor
+        ArrayList<Regione> regioni = new ArrayList<>();
+        regioni.add(new Regione("Toscana", 100, 10));
+        regioni.add(new Regione("Lombardia", 50, 20));
+        regioni.add(new Regione("Lazio", 100, 30));
+        regioni.add(new Regione("Venetao", 6500, 40));
+        regioni.add(new Regione("Emilia", 32000, 50));
+        regioni.add(new Regione("Toscana", 100, 10));
+        regioni.add(new Regione("Lombardia", 50, 20));
+        regioni.add(new Regione("Lazio", 100, 30));
+        regioni.add(new Regione("Venetao", 6500, 40));
+        regioni.add(new Regione("Emilia", 32000, 50));
+        regioni.add(new Regione("Toscana", 100, 10));
+        regioni.add(new Regione("Lombardia", 50, 20));
+        regioni.add(new Regione("Lazio", 100, 30));
+        regioni.add(new Regione("Venetao", 6500, 40));
+        regioni.add(new Regione("Emilia", 32000, 50));
+        regioni.add(new Regione("Toscana", 100, 10));
+        regioni.add(new Regione("Lombardia", 50, 20));
+        regioni.add(new Regione("Lazio", 100, 30));
+        regioni.add(new Regione("Venetao", 6500, 40));
+        regioni.add(new Regione("Emilia", 32000, 50));
+        regioni.add(new Regione("Toscana", 100, 10));
+        regioni.add(new Regione("Lombardia", 50, 20));
+        regioni.add(new Regione("Lazio", 100, 30));
+        regioni.add(new Regione("Venetao", 6500, 40));
+        regioni.add(new Regione("Emilia", 32000, 50));
 
-        // Find a reference to the {@link ListView} in the layout
-        ListView regioniListView = findViewById(R.id.list_view);
+        // Create a RegioneAdapter, whose data source is a list of regioni. The adapter knows how to create list item views for each item  in the list.
+        RegioneAdapter regioneAdapter = new RegioneAdapter(this, regioni);
 
-        // Create a new {@link ArrayAdapter} of regioni
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, regioni);
-
-        // Set the adapter on the {@link ListView}
-        // so the list can be populated in the user interface
-        regioniListView.setAdapter(adapter);
+        // Get a reference to the ListView, and attach the adapter to the listView.
+        ListView listView = (ListView) findViewById(R.id.list_view_regioni);
+        listView.setAdapter(regioneAdapter);
 
     }
 }
