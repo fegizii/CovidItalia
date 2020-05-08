@@ -37,6 +37,8 @@ public class Regione {
         mNuoviPositivi = nuoviPositivi;
     }
 
+
+
     public String getName() {
         return mName;
     }
@@ -44,7 +46,6 @@ public class Regione {
     public int getTotalePositivi() {
         return mTotalePositivi;
     }
-
 
     public int getNuoviPositivi() {
         return mNuoviPositivi;
