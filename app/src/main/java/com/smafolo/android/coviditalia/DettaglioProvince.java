@@ -78,8 +78,8 @@ public class DettaglioProvince extends AppCompatActivity {
         final ProvinceAdapter provinceAdapter = new ProvinceAdapter(this, province);
 
         // Get a reference to the ListView, and attach the adapter to the listView.
-        ListView regioniListView = findViewById(R.id.list_view_regioni);        //TODO Modify for province
-        regioniListView.setAdapter(provinceAdapter);
+        ListView listView = findViewById(R.id.list_view);
+        listView.setAdapter(provinceAdapter);
 
 
     }

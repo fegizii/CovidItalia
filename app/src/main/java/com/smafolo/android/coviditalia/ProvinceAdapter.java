@@ -24,7 +24,7 @@ public class ProvinceAdapter extends ArrayAdapter {
         // Check if the existing view is being reused, otherwise inflate the view
         View listItemView = convertView;
         if (listItemView == null) {
-            listItemView = LayoutInflater.from(getContext()).inflate(R.layout.province_list, parent, false);     //TODO adapt to province
+            listItemView = LayoutInflater.from(getContext()).inflate(R.layout.province_list, parent, false);
         }
 
         // Get the Regione object located at this position in the list
