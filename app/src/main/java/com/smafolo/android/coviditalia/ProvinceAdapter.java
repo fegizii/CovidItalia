@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
 
 public class ProvinceAdapter extends ArrayAdapter {
@@ -37,8 +38,7 @@ public class ProvinceAdapter extends ArrayAdapter {
         // Find the TextView in the list_item.xml layout with the ID totale_casi
         TextView totalePositiviTextView = (TextView) listItemView.findViewById(R.id.totale_casi);
         // Get the Totale Positivi number from the current Regione object and set this text on the TextView
-        totalePositiviTextView.setText("Totale Casi: " + currentProvincia.getmTotaleCasi()); //TODO try not to use hard coded strings
-
+        totalePositiviTextView.setText("Totale Casi: " + NumberFormat.getInstance().format(currentProvincia.getmTotaleCasi())); //TODO try not to use hard coded strings
 
         // Return the whole list item layout so that it can be shown in the ListView
         return listItemView;

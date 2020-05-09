@@ -3,13 +3,10 @@ package com.smafolo.android.coviditalia;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ListView;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.util.ArrayList;
 
 public class DettaglioProvince extends AppCompatActivity {
@@ -22,7 +19,6 @@ public class DettaglioProvince extends AppCompatActivity {
 
         Intent intent = getIntent();
         String regioneInFocus = intent.getStringExtra("Regione Cliccata");
-
 
         // Create an ArrayList of "Regione" objects
         ArrayList<Provincia> province = new ArrayList<>();
@@ -49,7 +45,6 @@ public class DettaglioProvince extends AppCompatActivity {
                 e.printStackTrace();
             }
 
-
             String regione = null;
             try {
                 assert currentProvincia != null;
@@ -58,11 +53,10 @@ public class DettaglioProvince extends AppCompatActivity {
                 e.printStackTrace();
             }
 
-            if (regione.equals(regioneInFocus)) {
-
+            assert regione != null;
+            if (regione.equals(regioneInFocus)) {       //
                 String name = null;
                 try {
-                    assert currentProvincia != null;
                     name = currentProvincia.getString("denominazione_provincia");
                 } catch (JSONException e) {
                     e.printStackTrace();

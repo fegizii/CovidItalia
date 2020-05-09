@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
 
 public class RegioneAdapter extends ArrayAdapter {
@@ -28,6 +29,9 @@ public class RegioneAdapter extends ArrayAdapter {
 
         // Get the Regione object located at this position in the list
         Regione currentRegione = (Regione) getItem(position);
+        int totalePositivi = currentRegione.getTotalePositivi();
+        int nuoviPositivi = currentRegione.getNuoviPositivi();
+        int aumetopercentuale = (int) Math.round(((double) nuoviPositivi / totalePositivi) *100);
 
         // Find the TextView in the list_item.xml layout with the ID nome_regione...
         TextView nameTextView = (TextView) listItemView.findViewById(R.id.nome_regione);
@@ -37,12 +41,13 @@ public class RegioneAdapter extends ArrayAdapter {
         // Find the TextView in the list_item.xml layout with the ID totale_positivi)
         TextView totalePositiviTextView = (TextView) listItemView.findViewById(R.id.totale_positivi);
         // Get the Totale Positivi number from the current Regione object and set this text on the TextView
-        totalePositiviTextView.setText("Totale Positivi: " + currentRegione.getTotalePositivi()); //TODO try not to use hard coded strings
+        totalePositiviTextView.setText("Totale Positivi: " + NumberFormat.getInstance().format(totalePositivi)); //TODO try not to use hard coded strings
+
 
         // Find the TextView in the list_item.xml layout with the ID nuovi_positivi
         TextView nuoviPositiviTextView = (TextView) listItemView.findViewById(R.id.nuovi_positivi);
         // Get the image resource ID from the current AndroidFlavor object and set the image to iconView
-        nuoviPositiviTextView.setText("Nuovi Positivi: " + currentRegione.getNuoviPositivi()); //TODO try not to use hard coded strings
+        nuoviPositiviTextView.setText("Nuovi Positivi: " + NumberFormat.getInstance().format(nuoviPositivi) + " (" + aumetopercentuale+ "%)"); //TODO try not to use hard coded strings
 
         // Return the whole list item layout so that it can be shown in the ListView
         return listItemView;

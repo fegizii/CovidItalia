@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center_vertical"
@@ -10,12 +11,13 @@
 
     <TextView
         android:id="@+id/nome_regione"
-        android:layout_width="wrap_content"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
-        android:hint="Nome Regione" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        tools:text="Nome Regione" />
 
     <LinearLayout
-        android:layout_width="0dp"
+        android:layout_width="166dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:orientation="vertical"
@@ -25,14 +27,22 @@
             android:id="@+id/totale_positivi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="Totale Positivi: " />
+            tools:text="Totale Positivi" />
 
         <TextView
             android:id="@+id/nuovi_positivi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="Nuovi Positivi: " />
+            tools:text="Nuovi Positivi" />
 
     </LinearLayout>
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@android:drawable/ic_media_play"/>
+
+
 
 </LinearLayout>
