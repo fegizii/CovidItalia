@@ -1,11 +1,14 @@
 package com.smafolo.android.coviditalia;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -77,16 +80,24 @@ public class MainActivity extends AppCompatActivity {
         ListView regioniListView = findViewById(R.id.list_view_regioni);
         regioniListView.setAdapter(regioneAdapter);
 
-        // Set an item click listener on the ListView. TODO When user clicks on regione goes to a new page with a list of province in the regione
+        // Set an item click listener on the ListView.
         regioniListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
 
                 // Find the current regione that was clicked on
                 Regione currentRegione = (Regione) regioneAdapter.getItem(position);
+
                 //Print toast
                 assert currentRegione != null;
                 Toast.makeText(getApplicationContext(), currentRegione.getName(), Toast.LENGTH_SHORT).show();
+
+
+                //Intent to open activity DettaglioProvince
+                Intent myIntent = new Intent(MainActivity.this, DettaglioProvince.class);
+                myIntent.putExtra("Regione Cliccata", currentRegione.getName()); //Optional parameters
+                MainActivity.this.startActivity(myIntent);
+
 
             }
         });

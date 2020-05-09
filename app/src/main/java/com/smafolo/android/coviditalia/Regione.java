@@ -7,8 +7,8 @@ package com.smafolo.android.coviditalia;
 
 public class Regione {
 
-    private String mName;
-    private String mdata;
+    private String mNome;
+    private String mData;
     private int mCodiceRegione;
     private int mRicoverati_con_sintomi;
     private int mterapia_intensiva;
@@ -32,15 +32,14 @@ public class Regione {
      * @param nuoviPositivi  is the new number of positive cases
      */
     public Regione(String name, int totalePositivi, int nuoviPositivi) {
-        mName = name;
+        mNome = name;
         mTotalePositivi = totalePositivi;
         mNuoviPositivi = nuoviPositivi;
     }
 
 
-
     public String getName() {
-        return mName;
+        return mNome;
     }
 
     public int getTotalePositivi() {
